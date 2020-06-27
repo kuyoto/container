@@ -55,6 +55,8 @@ class ConcatenatedStreamTest extends TestCase
 
         $stream = $this->prophesize(StreamInterface::class);
         $stream->isReadable()->willReturn(true);
+        $stream->getSize()->willReturn(2);
+        $stream->seek(Argument::type('integer'), Argument::type('integer'))->willReturn();
 
         $conc = new ConcatenatedStream([$stream->reveal()]);
         $conc->seek(100, SEEK_CUR);
