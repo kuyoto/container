@@ -1,5 +1,9 @@
 # PSR-7 Streams
 
+[![Build Status](https://travis-ci.org/kuyoto/psr7-streams.svg?b=master)](https://travis-ci.org/kuyoto/psr7-streams)
+[![Latest Stable Version](https://poser.pugx.org/kuyoto/psr7-streams/v/stable?format=flat)](https://packagist.org/packages/kuyoto/psr7-streams)
+[![License](https://poser.pugx.org/kuyoto/psr7-streams/license?format=flat)](https://packagist.org/packages/kuyoto/psr7-streams)
+
 This repository provides several [PSR-7](http://www.php-fig.org/psr/psr-7/) stream decorators.
 
 ## Installation
