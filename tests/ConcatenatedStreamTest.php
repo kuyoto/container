@@ -47,22 +47,6 @@ class ConcatenatedStreamTest extends TestCase
     }
 
     /**
-     * ConcatenatedStreamTest::testSupportsOnlySeekCur()
-     */
-    public function testSupportsOnlySeekCur(): void
-    {
-        $this->expectException(\RuntimeException::class);
-
-        $stream = $this->prophesize(StreamInterface::class);
-        $stream->isReadable()->willReturn(true);
-        $stream->getSize()->willReturn(2);
-        $stream->seek(Argument::type('integer'), Argument::type('integer'))->willReturn();
-
-        $conc = new ConcatenatedStream([$stream->reveal()]);
-        $conc->seek(100, SEEK_CUR);
-    }
-
-    /**
      * ConcatenatedStreamTest::testClosesEachStream()
      */
     public function testClosesEachStream(): void
@@ -175,6 +159,7 @@ class ConcatenatedStreamTest extends TestCase
         $stream->isReadable()->willReturn(true);
         $stream->isSeekable()->willReturn(true);
         $stream->eof()->willReturn(false);
+        $stream->rewind()->willReturn();
         $stream->getContents()->willThrow(new \RuntimeException());
 
         $conc = new ConcatenatedStream([$stream->reveal()]);
