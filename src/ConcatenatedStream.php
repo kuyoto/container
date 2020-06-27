@@ -240,6 +240,14 @@ class ConcatenatedStream implements StreamInterface
      */
     public function seek($offset, $whence = SEEK_SET)
     {
+        if (!$this->seekable) {
+            throw new \RuntimeException('This Stream is not seekable');
+        }
+
+        if ($whence !== SEEK_SET) {
+            throw new \RuntimeException('The Stream can only seek with SEEK_SET');
+        }
+        
         $seek = 0;
 
         while (isset($this->streams[$this->current]) && $offset > $seek) {
