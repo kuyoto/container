@@ -21,7 +21,7 @@ namespace Kuyoto\Psr7\Stream;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * NullStream
+ * NullStream.
  *
  * @category Library
  *

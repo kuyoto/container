@@ -42,8 +42,6 @@ class StringStream implements StreamInterface
 
     /**
      * Constructor.
-     *
-     * @param string $string
      */
     public function __construct(string $string)
     {
@@ -156,12 +154,15 @@ class StringStream implements StreamInterface
         switch ($whence) {
             case SEEK_CUR:
                 $this->position += $offset;
+
                 break;
             case SEEK_END:
                 $this->position = strlen($this->string) + $offset;
+
                 break;
             case SEEK_SET:
                 $this->position = $offset;
+
                 break;
         }
     }
@@ -181,6 +182,7 @@ class StringStream implements StreamInterface
     {
         $this->string = substr_replace($this->string, $string, $this->position, strlen($string));
         $this->position += strlen($string);
+
         return strlen($string);
     }
 }

@@ -34,8 +34,6 @@ class NoSeekStream implements StreamInterface
 
     /**
      * Constructor.
-     *
-     * @param StreamInterface $stream
      */
     public function __construct(StreamInterface $stream)
     {

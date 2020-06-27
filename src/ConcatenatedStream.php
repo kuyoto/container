@@ -134,7 +134,7 @@ class ConcatenatedStream implements StreamInterface
         while (isset($this->streams[$this->current])) {
             $result .= $this->streams[$this->current]->getContents();
 
-            $this->current++;
+            ++$this->current;
         }
 
         return $result;
@@ -203,7 +203,7 @@ class ConcatenatedStream implements StreamInterface
             $result .= $this->streams[$this->current]->read($length);
 
             if ($this->streams[$this->current]->eof()) {
-                $this->current++;
+                ++$this->current;
             }
         }
 
@@ -256,7 +256,7 @@ class ConcatenatedStream implements StreamInterface
             }
 
             if ($this->streams[$this->current]->eof()) {
-                $this->current++;
+                ++$this->current;
             }
         }
 
@@ -276,15 +276,15 @@ class ConcatenatedStream implements StreamInterface
      *
      * @param StreamInterface $stream the stream to append. Must be readable.
      *
-     * @throws \InvalidArgumentException if the stream is not readable.
+     * @throws \InvalidArgumentException if the stream is not readable
      */
     private function addStream(StreamInterface $stream): void
     {
-        if (! $stream->isReadable()) {
-            throw new \InvalidArgumentException('Each stream must be readable');;
+        if (!$stream->isReadable()) {
+            throw new \InvalidArgumentException('Each stream must be readable');
         }
 
-        if (! $stream->isSeekable()) {
+        if (!$stream->isSeekable()) {
             $this->seekable = false;
         }
 
