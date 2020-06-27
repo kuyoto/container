@@ -1,0 +1,55 @@
+{
+    "name": "kuyoto/psr7-streams",
+    "description": "Provides PSR-7 stream decorators.",
+    "keywords": [
+        "psr",
+        "psr-7",
+        "stream",
+        "decorators",
+        "streams"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tolulope Kuyoro",
+            "email": "nifskid1999@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5 || ^8.0",
+        "friendsofphp/php-cs-fixer": "^2.16.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kuyoto\\Psr7\\Stream\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kuyoto\\Psr7\\Stream\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-ci": "vendor/bin/phpunit --colors=always --coverage-clover clover.xml"
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests",
+        "test-ci": "Run coverage on all tests"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
